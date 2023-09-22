@@ -102,5 +102,18 @@ fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
     }
 }
 
-
+@Preview(showBackground = true)
+@Composable
+fun TopicPreview() {
+    CuadriculaTheme {
+        val topic = Topic(R.string.photography, 321, R.drawable.photography)
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            TopicCard(topic = topic)
+        }
+    }
+}
 
