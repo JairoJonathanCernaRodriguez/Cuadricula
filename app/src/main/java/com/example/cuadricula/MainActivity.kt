@@ -59,61 +59,9 @@ fun TopicGrid(modifier: Modifier = Modifier) {
         modifier = modifier
     ) {
         items(DataSource.topics) { topic ->
-            TopicCard(topic)
+
         }
     }
 }
 
-@Composable
-fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
-    Card {
-        Row {
-            Box {
-                Image(
-                    painter = painterResource(id = topic.imageRes),
-                    contentDescription = null,
-                    modifier = modifier
-                        .size(width = 68.dp, height = 68.dp)
-                        .aspectRatio(1f),
-                    contentScale = ContentScale.Crop
-                )
-            }
 
-            Column {
-                Text(
-                    text = stringResource(id = topic.name),
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding( 16.dp,16.dp,16.dp,8.dp)
-                )
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_grain),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(start = 16.dp)
-                    )
-                    Text(
-                        text = topic.availableCourses.toString(),
-                        style = MaterialTheme.typography.labelMedium,
-                        modifier = Modifier.padding(start = 8.dp)
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TopicPreview() {
-    CuadriculaTheme {
-        val topic = Topic(R.string.photography, 321, R.drawable.photography)
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            TopicCard(topic = topic)
-        }
-    }
-}
